@@ -127,6 +127,44 @@ test.describe('test', ()=>{
         })
         await test.step('Btn Register is disabled', async() => {
             await expect(btnRegister).toBeDisabled()
+            await expect(btnRegister).toHaveCSS('opacity', '0.65')
+        })
+        await test.step('Successfull user registration', async() => {
+
+            let genRndNumbers = (min, max) => {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            };
+            let rndDigits = genRndNumbers(1,1000);
+            console.log(rndDigits)
+
+            const userDataObj = {
+                name: 'Some',
+                lastname: 'New',
+            }
+            let rndEmail = `aqa-${userDataObj.name}.${userDataObj.lastname}+${rndDigits}@guglo.com`;
+            console.log(rndEmail)
+
+            let genRndPassword = (length) => {
+                const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-='; 
+         
+                let password = '';
+                for (let i = 0; i < length; i++) {
+                    const rndIndex = Math.floor(Math.random() * chars.length);
+                    password += chars[rndIndex];
+                }
+         
+                return password;
+            };
+            let rndPassword = genRndPassword(8);
+
+            await inputRegistrationName.fill(userDataObj.name)
+            await inputRegistrationLastName.fill(userDataObj.lastname)
+            await inputRegistrationEmail.fill(rndEmail)
+            await inputRegistrationPassword.fill(rndPassword)
+            await inputRegistrationRePassword.fill(rndPassword)
+            console.log(rndPassword)
+            await btnRegister.click()
+
         })
     })
 })
