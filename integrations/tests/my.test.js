@@ -12,10 +12,6 @@ test.describe('test', ()=>{
         await basePage.mainUrl()
     })
 
-    test.afterAll('close', async ({ page }) => {
-        await page.close()
-    });
-
     test('Sign UP negative test', async ({page})=>{
         const basePage = new BasePage(page)
         const modalPage = new ModalPage(page)
@@ -107,6 +103,7 @@ test.describe('test', ()=>{
         await test.step('Delete user', async() => {
             await garagePage.clickSettingsTab()
             await settingsPage.deleteAccount()
+            await page.close()
         })
     })
 })
