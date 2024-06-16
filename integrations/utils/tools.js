@@ -24,17 +24,30 @@ export default class Tools {
   rndEmail = `aqa-${userData.name}.${userData.lastname}+${this.rndDigits}@guglo.com`;
 
   genRndPassword = (length) => {
-    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]:;?><,./-='; 
-  
+    const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+    const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const numberChars = '0123456789';
+    const specialChars = '!@#$%^&*()_+~`|}{[]:;?><,./-=';
+
     let password = '';
-    for (let i = 0; i < length; i++) {
-        const rndIndex = Math.floor(Math.random() * chars.length);
-        password += chars[rndIndex];
+
+    password += lowercaseChars[Math.floor(Math.random() * lowercaseChars.length)];
+    password += uppercaseChars[Math.floor(Math.random() * uppercaseChars.length)];
+    password += numberChars[Math.floor(Math.random() * numberChars.length)];
+    password += specialChars[Math.floor(Math.random() * specialChars.length)];
+
+    const remainingLength = length - 4;
+
+    const allChars = lowercaseChars + uppercaseChars + numberChars + specialChars;
+    for (let i = 0; i < remainingLength; i++) {
+        const rndIndex = Math.floor(Math.random() * allChars.length);
+        password += allChars[rndIndex];
     }
-  
+
+    password = password.split('').sort(() => 0.5 - Math.random()).join('');
+
     return password;
   };
 
   rndPassword = this.genRndPassword(8);
-
 }

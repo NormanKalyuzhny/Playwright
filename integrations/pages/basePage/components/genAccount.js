@@ -1,11 +1,11 @@
 import UserData from "../../../data/userDataObj"
 import BasePage from "../BasePage"
-import ModalPage from "../components/ModalPage"
+import ModalPageSignUp from "./ModalPageSignUp"
 import Tools from "../../../utils/tools"
 
 export async function genAccount(page){
     const basePage = new BasePage(page)
-    const modalPage = new ModalPage(page)
+    const modalPage = new ModalPageSignUp(page)
     const userData = new UserData()
     const tools = new Tools()
     
