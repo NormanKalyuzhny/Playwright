@@ -6,3 +6,4 @@ node_modules/
 /tests-examples
 /tests/example.spec.js
 .env
+integrations/data/user.json

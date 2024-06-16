@@ -3,7 +3,7 @@ import {expect} from '@playwright/test';
 import Tools from "../../../utils/tools";
 const tools = new Tools()
 
-export default class ModalPage extends BasePage{
+export default class ModalPageSignUp extends BasePage{
     constructor(page){
         
         super(page)

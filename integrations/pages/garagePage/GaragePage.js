@@ -1,14 +1,10 @@
-import BasePage from '../basePage/BasePage';
-
-export default class GaragePage extends BasePage{
+export default class GaragePage{
     constructor(page){
-        super(page)
-        this.settingsTab = this.page.locator('//a[contains(@class,"btn btn-white btn-sidebar sidebar_btn") and contains(@routerlink, "settings")]')
-    }
-
-    mainUrl = "https://qauto2.forstudy.space/panel/garage";
+        this.page = page
+        this.settingsTab = this.page.locator('//a[contains(@class,"btn btn-white btn-sidebar sidebar_btn") and contains(@routerlink, "settings")]');
+        this.btnLogOut = this.page.locator('//a[@class="btn btn-link text-danger btn-sidebar sidebar_btn"]');
     
-    clickSettingsTab = async () => {
-        await this.settingsTab.click()
+    async function clickSettingsTab(){
+        await this.settingsTab.click();
     }
-}
+}}

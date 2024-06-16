@@ -1,4 +1,3 @@
-// @ts-check
 const { defineConfig, devices } = require('@playwright/test');
 
 /**
@@ -26,32 +25,37 @@ module.exports = defineConfig({
   use: {
   /* Base URL to use in actions like `await page.goto('/')`. */
   baseURL: process.env.STAGING === '1' ? process.env.BASE_URL : 'https://qauto.forstudy.space/',
-    //baseURL: process.env.BASE_URL,
     httpCredentials: {
       username: process.env.HTTP_CREDENTIALS_USERNAME,
       password: process.env.HTTP_CREDENTIALS_PASSWORD,
     },
   /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'on',
   },
-
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name:'setup',
+      testDir: './integrations', 
+      testMatch: 'auth.setup.js'
     },
-
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: 'chromium',  
+      use: { ...devices['Desktop Chrome'], storageState:'integrations/data/user.json'},  
+      dependencies: ['setup'],
     },
-
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: 'chromiumNoStorage',  
+      use: { ...devices['Desktop Chrome']},  
     },
-
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',

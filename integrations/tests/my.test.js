@@ -1,6 +1,6 @@
 import {test} from '@playwright/test';
 import BasePage from '../pages/basePage/BasePage';
-import ModalPage from '../pages/basePage/components/ModalPage';
+import ModalPageSignUp from '../pages/basePage/components/ModalPageSignUp';
 import { genAccount } from '../pages/basePage/components/genAccount';
 import GaragePage from '../pages/garagePage/GaragePage';
 import SettingsPage from '../pages/garagePage/components/SettingsPage';
@@ -14,7 +14,7 @@ test.describe('test', ()=>{
 
     test('Sign UP negative test', async ({page})=>{
         const basePage = new BasePage(page)
-        const modalPage = new ModalPage(page)
+        const modalPage = new ModalPageSignUp(page)
         const garagePage = new GaragePage(page)
         const settingsPage = new SettingsPage(page)
 
