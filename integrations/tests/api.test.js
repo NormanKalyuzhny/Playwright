@@ -1,6 +1,6 @@
 import { test, expect, request } from '@playwright/test';
 
-test.describe('Perform POST request using Playwright', async () => {
+test.describe('Api tests', async () => {
     let apiContext;
     test.beforeAll(async ()=>{
         apiContext = await request.newContext({
