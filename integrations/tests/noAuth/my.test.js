@@ -1,9 +1,9 @@
 import {test} from '@playwright/test';
-import BasePage from '../pages/basePage/BasePage';
-import ModalPageSignUp from '../pages/basePage/components/ModalPageSignUp';
-import { genAccount } from '../pages/basePage/components/genAccount';
-import GaragePage from '../pages/garagePage/GaragePage';
-import SettingsPage from '../pages/garagePage/components/SettingsPage';
+import BasePage from '../../pages/basePage/BasePage';
+import ModalPageSignUp from '../../pages/basePage/components/ModalPageSignUp';
+import { genAccount } from '../../pages/basePage/components/genAccount';
+import GaragePage from '../../pages/garagePage/GaragePage';
+import SettingsPage from '../../pages/garagePage/components/SettingsPage';
 
 test.describe('test', ()=>{
 
@@ -104,6 +104,7 @@ test.describe('test', ()=>{
             await garagePage.clickSettingsTab()
             await settingsPage.deleteAccount()
             await page.close()
+            
         })
     })
 })

@@ -8,8 +8,9 @@ export default class GaragePage{
         this.profileTab = this.garageSidePanel.locator('//a[@routerlink="profile"]')
         this.settingsTab = this.garageSidePanel.locator('//a[@routerlink="settings"]');
         this.btnLogOut = this.page.locator('//a[@class="btn btn-link text-danger btn-sidebar sidebar_btn"]');
-    
-    async function clickSettingsTab(){
-        await this.settingsTab.click();
     }
-}}
+    clickSettingsTab = async ()=> {
+        await this.settingsTab.click();
+    }   
+}
+
