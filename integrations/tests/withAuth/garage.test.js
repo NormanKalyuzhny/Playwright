@@ -1,4 +1,4 @@
-import { test } from '../fixtures/garagePageFixture';
+import { test } from '../../fixtures/garagePageFixture';
 import {expect} from '@playwright/test'
 
 test.describe('Garage page tests', ()=>{

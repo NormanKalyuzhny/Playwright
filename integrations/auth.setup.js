@@ -9,7 +9,7 @@ test('Auth', async({page})=>{
     const modalPageSignIn = new ModalPageSignIn(page)
     const apiUtils = new ApiUtils()
     const baseUrl = process.env.BASE_URL
-    const storageStatePath = playwrightConfig.projects.find(project => project.name === 'chromium').use.storageState;
+    const storageStatePath = playwrightConfig.projects.find(project => project.name === 'chromiumWithAuth').use.storageState;
 
     await apiUtils.apiGenAcc()
     await page.goto(baseUrl)

@@ -40,13 +40,15 @@ module.exports = defineConfig({
       testMatch: 'auth.setup.js'
     },
     {
-      name: 'chromium',  
-      use: { ...devices['Desktop Chrome'], storageState:'integrations/data/user.json'},  
+      name: 'chromiumWithAuth',  
+      use: { ...devices['Desktop Chrome'], storageState:'integrations/data/user.json'},
+      testDir: './integrations/tests/withAuth',  
       dependencies: ['setup'],
     },
     {
-      name: 'chromiumNoStorage',  
-      use: { ...devices['Desktop Chrome']},  
+      name: 'chromiumNoAuth',  
+      use: { ...devices['Desktop Chrome']},
+      testDir: './integrations/tests/noAuth',   
     },
     // {
     //   name: 'firefox',
