@@ -20,7 +20,7 @@ export default class ApiUtils{
     apiGenAcc = async () =>{
         const req = await request.newContext()
 
-        const responce = await req.post(`${this.baseUrl}api/auth/signup`,{
+        const responce = await req.post(`${this.baseUrl}/api/auth/signup`,{
             data: this.postData
         })
         
