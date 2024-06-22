@@ -35,7 +35,7 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: 18
-    - uses: Create .env file
+    - name: Create .env file
       run: |
           echo "BASE_URL=${{vars.BASE_URL}}" >> .env
           echo "HTTP_CREDENTIALS_USERNAME=${{ vars.HTTP_CREDENTIALS_USERNAME }}" >> .env
