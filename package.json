@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:noAuth": "npx playwright test my.test.js --project=chromiumNoAuth",
-    "test:Auth": "npx playwright test my.test.js --project=chromiumWithAuth",
+    "test:noAuth": "npx playwright test --project=chromiumNoAuth",
+    "test:Auth": "npx playwright test --project=chromiumWithAuth",
     "test:ui": "npx playwright test ==ui",
     "report": "npx playwright show-report"
   },
