@@ -1,5 +1,7 @@
 import UserData from "../data/userDataObj";
 const userData = new UserData()
+import CarData from "../pages/garagePage/components/pageData/instructionsPageData";
+const carData = new CarData()
 
 export default class Tools {
   convertHexToRGB(hex) {
@@ -50,4 +52,16 @@ export default class Tools {
   };
 
   rndPassword = this.genRndPassword(8);
+
+  rndCarGen = () => {
+    const rndBrandIndex = Math.floor(Math.random() * carData.carBrands.length)
+    const rndBrand = carData.carBrands[rndBrandIndex]
+    const models = carData.carModels[rndBrand]
+    const rndModelIndex = Math.floor(Math.random() * models.length)
+    const rndModels = models[rndModelIndex] 
+
+    return {brand:rndBrand, model:rndModels}
+  };
+
+  rndCar = this.rndCarGen();
 }
