@@ -41,15 +41,19 @@ test.describe('Garage page tests', ()=>{
 
     test('Instructions tab elements check', async({garagePage,instructionsPage,page})=>{
         await test.step('Instructions tab',async ()=>{
-            await garagePage.clickInstructionsTab() //click tab
-
-            await instructionsPage.clickBrandSelector()
-            await instructionsPage.expectBrandList()
-
-            await instructionsPage.clickModelSelector()
-            await instructionsPage.expectModelList()
-
-            expect(await instructionsPage.btnSearch.isVisible()).toBeTruthy(); //check Search button is visible
+            await garagePage.clickInstructionsTab()
+            expect(await instructionsPage.btnSearch.isVisible()).toBeTruthy();
+        
+            await test.step('Car brands list in dropdown',async ()=>{
+                await instructionsPage.clickBrandSelector()
+                await instructionsPage.expectBrandList()
+                await instructionsPage.clickEachCarBrand()
+            })
+            await test.step('Car models list in dropdown',async ()=>{
+                await instructionsPage.clickModelSelector()
+                await instructionsPage.expectModelList()
+                await instructionsPage.clickEachCModelBrand()
+            })
         })
     })
 
