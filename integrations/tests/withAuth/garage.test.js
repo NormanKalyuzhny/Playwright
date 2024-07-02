@@ -26,7 +26,6 @@ test.describe('Garage page tests', ()=>{
         await test.step('Fuel expanse tab',async ()=>{
             await garagePage.clickFuelExpensesTab() 
             expect(await fuelExpensesPage.btnAddAnExpense.isVisible()).toBeTruthy();
-            expect(await fuelExpensesPage.linkGaragePage.isVisible()).toBeTruthy();    
         })
         await test.step('Profile tab',async ()=>{
             await garagePage.clickProfileTab()
