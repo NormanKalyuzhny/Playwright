@@ -38,7 +38,7 @@ test.describe('Garage page tests', ()=>{
         })
     })
 
-    test('Instructions tab elements check', async({garagePage,instructionsPage,page})=>{
+    test('Instructions tab elements check', async({garagePage,instructionsPage})=>{
         await test.step('Instructions tab',async ()=>{
             await garagePage.clickInstructionsTab()
             expect(await instructionsPage.btnSearch.isVisible()).toBeTruthy();

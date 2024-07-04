@@ -28,7 +28,6 @@ export default class InstructionsPage extends GaragePage{
     activeCarBrand = async ()=> {
         const activeCarBrandLoc = await this.panelPageContent.locator('//li[@class="dropdown-item btn btn-link brand-select-dropdown_item -active disabled"]')
         const activeCarBrandText = await activeCarBrandLoc.innerText()
-        //console.log('Active car brand:', activeCarBrandText)
         return activeCarBrandText
     }
     expectBrandList = async () => {
@@ -50,8 +49,9 @@ export default class InstructionsPage extends GaragePage{
             const elementText = await element.innerText();
             elementTexts.push(elementText);
         }
-    
-        expect(elementTexts).toEqual(carData.carModels.Audi)
+        let currentCar = await this.btnBrandList.innerText()
+        let currentModel = carData.carModels[currentCar]
+        expect(elementTexts).toEqual(currentModel)
     }
     clickEachCarBrand = async () => {
         const elements = await this.brandListItems;
