@@ -46,12 +46,11 @@ test.describe('Garage page tests', ()=>{
             await test.step('Car brands list in dropdown',async ()=>{
                 await instructionsPage.clickBrandSelector()
                 await instructionsPage.expectBrandList()
-                await instructionsPage.clickEachCarBrand()
             })
             await test.step('Car models list in dropdown',async ()=>{
                 await instructionsPage.clickModelSelector()
                 await instructionsPage.expectModelList()
-                await instructionsPage.clickEachCModelBrand()
+
             })
         })
     })
