@@ -1,23 +1,11 @@
-import {test} from '@playwright/test';
-import BasePage from '../../pages/basePage/BasePage';
-import ModalPageSignUp from '../../pages/basePage/components/ModalPageSignUp';
+import { test } from '../../fixtures/garagePageFixture';
 import { genAccount } from '../../pages/basePage/components/genAccount';
-import GaragePage from '../../pages/garagePage/GaragePage';
-import SettingsPage from '../../pages/garagePage/components/SettingsPage';
 
 test.describe('test', ()=>{
-
-    test.beforeEach('base url loaded', async ({page})=>{
-        const basePage = new BasePage(page)
+    test.beforeEach('base url loaded', async ({basePage})=>{
         await basePage.mainUrl()
     })
-
-    test('Sign UP negative test', async ({page})=>{
-        const basePage = new BasePage(page)
-        const modalPage = new ModalPageSignUp(page)
-        const garagePage = new GaragePage(page)
-        const settingsPage = new SettingsPage(page)
-
+    test('Sign UP negative test', async ({page,basePage,garagePage,settingsPage,modalPage})=>{
         await test.step('Click Sign UP button', async() => {    
             await basePage.btnSignUP.click()
             await basePage.btnSignUPVisible()
