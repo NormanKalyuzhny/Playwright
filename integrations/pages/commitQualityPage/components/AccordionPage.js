@@ -22,26 +22,15 @@ export default class AccordionPage{
     mainUrlLogin = async () => {
         await this.page.goto(this.mainUrl)
     }
-    expRadioBtn1Text = async () => {
-        let radioBtn1Text;
-        const elements = await this.componentContainer.all();
-        for (let i = 0; i < elements.length; i++) {
-            const element = elements[i];
-            const text = await element.innerText();
-            if (text.includes('option1 clicked')) {
-                 radioBtn1Text = true;
-            } else { radioBtn1Text = false}
-        }
-        expect(radioBtn1Text).toBeTruthy()
-    }
-    expRadioBtn2Text = async () => {
+    expRadioBtnText = async (expText) => {
         let checExpText;
         const elements = await this.componentContainer.all();
         for (const element of elements){
             const text = await element.innerText();
-            if (text.includes('option2 clicked')) {
+            if (text.includes(expText)) {
                 checExpText = true;
-            } else { checExpText = false}
+                break;
+            }
         }
         expect(checExpText).toBeTruthy()
     }

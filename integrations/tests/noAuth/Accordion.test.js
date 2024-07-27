@@ -1,6 +1,5 @@
 import {test,expect} from "@playwright/test";
 import AccordionPage from "../../pages/commitQualityPage/components/AccordionPage";
-
 test.describe('Accordions tests', ()=>{
     test('Accordion elements', async ({page})=>{
         const accordionPage = new AccordionPage(page)
@@ -18,9 +17,9 @@ test.describe('Accordions tests', ()=>{
         await test.step('Radio buttons', async ()=>{
             await accordionPage.btnAccordion2.click();
             await accordionPage.radioBtn1.click()
-            await accordionPage.expRadioBtn1Text()
+            await accordionPage.expRadioBtnText('option1 clicked')
             await accordionPage.radioBtn2.click()
-            await accordionPage.expRadioBtn2Text()
+            await accordionPage.expRadioBtnText('option2 clicked')
         })
         await test.step('Checkboxes', async () => {
             await accordionPage.btnAccordion3.click();
@@ -31,7 +30,6 @@ test.describe('Accordions tests', ()=>{
             await accordionPage.checkBox3.click()
             await accordionPage.expCheckBoxText('Checkbox 3 checked')
             await page.close()
-
         })
     })
 })
