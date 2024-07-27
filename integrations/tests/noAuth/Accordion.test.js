@@ -25,11 +25,11 @@ test.describe('Accordions tests', ()=>{
         await test.step('Checkboxes', async () => {
             await accordionPage.btnAccordion3.click();
             await accordionPage.checkBox1.click()
-            await accordionPage.expCheckBox1Text()
+            await accordionPage.expCheckBoxText('Checkbox 1 checked')
             await accordionPage.checkBox2.click()
-            await accordionPage.expCheckBox2Text()
+            await accordionPage.expCheckBoxText('Checkbox 2 checked')
             await accordionPage.checkBox3.click()
-            await accordionPage.expCheckBox3Text()
+            await accordionPage.expCheckBoxText('Checkbox 3 checked')
             await page.close()
 
         })

@@ -35,55 +35,27 @@ export default class AccordionPage{
         expect(radioBtn1Text).toBeTruthy()
     }
     expRadioBtn2Text = async () => {
-        let radioBtn2Text;
+        let checExpText;
         const elements = await this.componentContainer.all();
-        for (let i = 0; i < elements.length; i++) {
-            const element = elements[i];
+        for (const element of elements){
             const text = await element.innerText();
             if (text.includes('option2 clicked')) {
-                radioBtn2Text = true;
-            } else { radioBtn2Text = false}
+                checExpText = true;
+            } else { checExpText = false}
         }
-        expect(radioBtn2Text).toBeTruthy()
+        expect(checExpText).toBeTruthy()
     }
-    expCheckBox1Text = async () => {
-        let checkBox1Exp;
+    expCheckBoxText = async (expText) => {
+        let checExpText;
         const elements = await this.checkBoxContainer.all()
-        for (let i = 0; i < elements.length; i++) {
-            const element = elements[i];
+        for (const element of elements){
             const text = await element.innerText(); 
-            if (text.includes('Checkbox 1 checked')) {
-                checkBox1Exp = true;
+            if (text.includes(expText)) {
+                checExpText = true;
                 break; 
             }
         }
-        expect(checkBox1Exp).toBeTruthy()
-    }
-    expCheckBox2Text = async () => {
-        let checkBox2Exp;
-        const elements = await this.checkBoxContainer.all()
-        for (let i = 0; i < elements.length; i++) {
-            const element = elements[i];
-            const text = await element.innerText(); 
-            if (text.includes('Checkbox 2 checked')) {
-                checkBox2Exp = true;
-                break; 
-            }
-        }
-        expect(checkBox2Exp).toBeTruthy()
-    }
-    expCheckBox3Text = async () => {
-        let checkBox3Exp;
-        const elements = await this.checkBoxContainer.all()
-        for (let i = 0; i < elements.length; i++) {
-            const element = elements[i];
-            const text = await element.innerText(); 
-            if (text.includes('Checkbox 2 checked')) {
-                checkBox3Exp = true;
-                break; 
-            }
-        }
-        expect(checkBox3Exp).toBeTruthy()
+        expect(checExpText).toBeTruthy()
     }
     
 }
